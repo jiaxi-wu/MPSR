@@ -36,6 +36,7 @@ dist/
 /models
 /output
 /fs_exp
+/inference
 
 #extra log
 /log.txt
