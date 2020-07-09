@@ -40,7 +40,7 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         "tvmonitor",
     )
 
-    CLASSES_split1_base = (
+    CLASSES_SPLIT1_BASE = (
         "__background__ ",
         "aeroplane",
         "bicycle",
@@ -59,7 +59,7 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         "tvmonitor",
     )
 
-    CLASSES_split2_base = (
+    CLASSES_SPLIT2_BASE = (
         "__background__ ",
         "bicycle",
         "bird",
@@ -78,7 +78,7 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         "tvmonitor",
     )
 
-    CLASSES_split3_base = (
+    CLASSES_SPLIT3_BASE = (
         "__background__ ",
         "aeroplane",
         "bicycle",
@@ -97,21 +97,21 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         "tvmonitor",
     )
 
-    CLASSES_split1_novel = (
+    CLASSES_SPLIT1_NOVEL = (
         "bird",
         "bus",
         "cow",
         "motorbike",
         "sofa",
     )
-    CLASSES_split2_novel = (
+    CLASSES_SPLIT2_NOVEL = (
         "aeroplane",
         "bottle",
         "cow",
         "horse",
         "sofa"
     )
-    CLASSES_split3_novel = (
+    CLASSES_SPLIT3_NOVEL = (
         "boat",
         "cat",
         "motorbike",
@@ -133,18 +133,18 @@ class PascalVOCDataset(torch.utils.data.Dataset):
             self.ids = f.readlines()
         self.ids = [x.strip("\n") for x in self.ids]
 
-        #too few ids lead to an unfixed bug
+        #too few ids lead to an unfixed bug in dataloader
         if len(self.ids) < 50 and toofew:
             self.ids = self.ids * (int(100 / len(self.ids)) + 1)
         
         self.id_to_img_map = {k: v for k, v in enumerate(self.ids)}
 
         if 'split1_base' in split:
-            cls = PascalVOCDataset.CLASSES_split1_base
+            cls = PascalVOCDataset.CLASSES_SPLIT1_BASE
         elif 'split2_base' in split:
-            cls = PascalVOCDataset.CLASSES_split2_base
+            cls = PascalVOCDataset.CLASSES_SPLIT2_BASE
         elif 'split3_base' in split:
-            cls = PascalVOCDataset.CLASSES_split3_base
+            cls = PascalVOCDataset.CLASSES_SPLIT3_BASE
         else:
             cls = PascalVOCDataset.CLASSES
         self.cls = cls

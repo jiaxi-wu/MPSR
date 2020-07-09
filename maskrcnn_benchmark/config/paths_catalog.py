@@ -31,41 +31,33 @@ class DatasetCatalog(object):
             "img_dir": "coco/val2014",
             "ann_file": "coco/annotations/instances_valminusminival2014.json"
         },
-        "coco_2014_trainbase": {
+        "coco_2014_train_base": {
             "img_dir": "coco/train2014",
-            "ann_file": "coco/annotations/instances_train2014base.json"
+            "ann_file": "coco/annotations/instances_train2014_base.json"
         },
-        "coco_2014_trainnovelstandard30shot": {
+        "coco_2014_train_30shot_standard": {
             "img_dir": "coco/train2014",
-            "ann_file": "coco/annotations/instances_train2014novelstandard30shot.json"
+            "ann_file": "coco/annotations/instances_train2014_30shot_novel_standard.json"
         },
-        "coco_2014_valnovelstandard30shot": {
+        "coco_2014_val_30shot_standard": {
             "img_dir": "coco/val2014",
-            "ann_file": "coco/annotations/instances_val2014novelstandard30shot.json"
+            "ann_file": "coco/annotations/instances_val2014_30sho_novel_standard.json"
         },
-        "coco_2014_trainnovelstandard10shot": {
+        "coco_2014_train_10shot_standard": {
             "img_dir": "coco/train2014",
-            "ann_file": "coco/annotations/instances_train2014novelstandard10shot.json"
+            "ann_file": "coco/annotations/instances_train2014_10shot_novel_standard.json"
         },
-        "coco_2014_valnovelstandard10shot": {
+        "coco_2014_val_10shot_standard": {
             "img_dir": "coco/val2014",
-            "ann_file": "coco/annotations/instances_val2014novelstandard10shot.json"
+            "ann_file": "coco/annotations/instances_val2014_10shot_novel_standard.json"
         },
-        "coco_2014_trainnovelseries10shot": {
-            "img_dir": "coco/train2014",
-            "ann_file": "coco/annotations/instances_train2014novelseries10shot.json"
-        },
-        "coco_2014_trainnovelseries30shot": {
-            "img_dir": "coco/train2014",
-            "ann_file": "coco/annotations/instances_train2014novelseries30shot.json"
-        },
-        "coco_2014_valminusminivalbase": {
+        "coco_2014_valminusminival_base": {
             "img_dir": "coco/val2014",
-            "ann_file": "coco/annotations/instances_valminusminival2014base.json"
+            "ann_file": "coco/annotations/instances_valminusminival2014_base.json"
         },
-        "coco_2014_minivalbase": {
+        "coco_2014_minival_base": {
             "img_dir": "coco/val2014",
-            "ann_file": "coco/annotations/instances_minival2014base.json"
+            "ann_file": "coco/annotations/instances_minival2014_base.json"
         },
         "keypoints_coco_2014_train": {
             "img_dir": "coco/train2014",
