@@ -33,7 +33,6 @@ _C.MODEL.CLS_AGNOSTIC_BBOX_REG = False
 # the path in paths_catalog. Else, it will use it as the specified absolute
 # path
 _C.MODEL.WEIGHT = ""
-_C.MODEL.FROZENBACKBONE = False
 
 
 # -----------------------------------------------------------------------------
@@ -42,7 +41,7 @@ _C.MODEL.FROZENBACKBONE = False
 _C.INPUT = CN()
 # Size of the smallest side of the image during training
 _C.INPUT.MIN_SIZE_RANGE_TRAIN = (0, )
-_C.INPUT.MIN_SIZE_TRAIN = (800, )#(320, 384, 458, 578, 800)# (800,)
+_C.INPUT.MIN_SIZE_TRAIN = (800, )
 _C.INPUT.MIN_SIZE_CLOSEUP = (32, 64, 128, 256, 512, 800)
 # Maximum size of the side of the image during training
 _C.INPUT.MAX_SIZE_TRAIN = 1333
