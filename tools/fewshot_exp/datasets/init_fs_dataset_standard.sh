@@ -6,4 +6,4 @@ python tools/fewshot_exp/datasets/voc_create_base.py
 python tools/fewshot_exp/datasets/voc_create_standard.py
 python tools/fewshot_exp/datasets/coco_create_base.py
 python tools/fewshot_exp/datasets/coco_create_standard.py
-
+mkdir fs_exp
