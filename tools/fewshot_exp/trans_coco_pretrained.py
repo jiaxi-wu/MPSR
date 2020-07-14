@@ -1,5 +1,4 @@
 import torch
-#from torch.nn import functional as F
 checkpoint = torch.load('model_coco_base.pth', map_location=torch.device("cpu"))
 model = checkpoint['model']
 aimclass = 81

@@ -27,6 +27,9 @@ imgdirs = ['datasets/coco/train2014', 'datasets/coco/val2014']
 annofiles = ["datasets/coco/annotations/instances_train2014_base.json", "datasets/coco/annotations/instances_valminusminival2014_base.json"]
 if not os.path.exists('datasets/coco/Crops'):
     os.mkdir('datasets/coco/Crops')
+else:
+    shutil.rmtree('datasets/coco/Crops')
+    os.mkdir('datasets/coco/Crops')
 for cls in CloseupDataset.CLASSES_COCO_BASE:
     os.mkdir('datasets/coco/Crops/' + cls)
 cls_count = {cls: 0 for cls in CloseupDataset.CLASSES_COCO_BASE}

@@ -9,8 +9,11 @@ for split in range(1, 4):
                      PascalVOCDataset.CLASSES_SPLIT3_NOVEL,][split - 1]
         novel_index = [all_cls.index(c) for c in novel_cls]
         AP = [0] * 5
-        with open(sys.argv[1] + '/result_split%d_%dshot.txt'%(split, shot), 'r') as f:
-            content = f.readlines()
-        for k, j in enumerate(novel_index):
-            AP[k] += float(content[j][18 : 24])
-        print("VOC split%d  %dshot:novel map:%.4f"%(split, shot, sum(AP) / 5))
+        try:
+            with open(sys.argv[1] + '/result_split%d_%dshot.txt'%(split, shot), 'r') as f:
+                content = f.readlines()
+            for k, j in enumerate(novel_index):
+                AP[k] += float(content[j][18 : 24])
+            print("VOC split%d  %dshot:novel map:%.4f"%(split, shot, sum(AP) / 5))
+        except Exception as e:
+            continue

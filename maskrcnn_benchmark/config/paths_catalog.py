@@ -220,7 +220,7 @@ class DatasetCatalog(object):
             "data_dir": "voc/VOC2012",
             "split": "trainval_split3_base"
         },
-        "coco_2014_base_closeup": {
+        "coco_2014_closeup_base": {
             "data_dir": "coco",
             "split": "coco_base"
         },
