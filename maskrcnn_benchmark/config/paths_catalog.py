@@ -41,7 +41,7 @@ class DatasetCatalog(object):
         },
         "coco_2014_val_30shot_standard": {
             "img_dir": "coco/val2014",
-            "ann_file": "coco/annotations/instances_val2014_30sho_novel_standard.json"
+            "ann_file": "coco/annotations/instances_val2014_30shot_novel_standard.json"
         },
         "coco_2014_train_10shot_standard": {
             "img_dir": "coco/train2014",

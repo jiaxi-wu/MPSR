@@ -22,7 +22,7 @@ MODEL:
     FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractor"
     PREDICTOR: "FPNPredictor"
 DATASETS:
-  TRAIN: ("coco_2014_train_30shot_novel_standard", "coco_2014_val_30shot_novel_standard")
+  TRAIN: ("coco_2014_train_30shot_standard", "coco_2014_val_30shot_standard")
   CLOSEUP: ("coco_2014_closeup_standard",)
   TEST: ("coco_2014_minival",)
 DATALOADER:
