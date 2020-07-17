@@ -8,7 +8,7 @@ Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](h
 3. README/INSTALL/detailed notations: 07/17.
 4. Few-shot scripts for MS COCO experiments: 07/20.
 
-# Abstract
+## Abstract
 Few-shot object detection (FSOD) helps detectors adapt to unseen classes with few training instances, and is useful when manual annotation is time-consuming or data acquisition is limited.
 Unlike previous attempts that exploit few-shot classification techniques to facilitate FSOD, this work highlights the necessity of handling the problem of scale variations, which is challenging due to the unique sample distribution.
 The lack of labels of novel classes leads to a sparse scale space which may be totally divergent from the original distribution of abundant training data. 
@@ -17,7 +17,7 @@ It generates multi-scale positive samples as object pyramids and refines the pre
 We demonstrate its advantage by integrating it as an auxiliary branch to the popular architecture of Faster R-CNN with FPN. 
 
 <div align=center>
-<img src="https://github.com/jiaxi-wu/MPSR/blob/master/tools/fewshot_exp/MPSR_arch.jpg">
+<img src="https://github.com/jiaxi-wu/MPSR/blob/master/tools/fewshot_exp/MPSR_arch.jpg" width="600">
 </div>
 
 The whole detection framework for training consists of Faster R-CNN with FPN and the refinement branch working in parallel while sharing the same weights.
@@ -26,12 +26,12 @@ Simultaneously, an independent object extracted from the original image is resiz
 We manually select the corresponding scale level of feature maps and the fixed center locations as positives for each object, keeping it consistent with the standard FPN assigning rules.
 After selecting specific features from these feature maps, we feed them directly to the RPN head and the detection head for refinement.
 
-# Installation
+## Installation
 Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has been deprecated, please follow these instructions carefully (e.g. version of Python packages).
 
-# Prepare datasets
+## Prepare datasets
 
-## Prepare original Pascal VOC & MS COCO datasets
+### Prepare original Pascal VOC & MS COCO datasets
 First, you will need to download the VOC & COCO datasets.
 We recommend to symlink the path to the coco dataset to `datasets/` as follows
 
@@ -50,7 +50,7 @@ ln -s /path_to_coco_dataset/val2014 datasets/coco/val2014
 ln -s /path_to_VOCdevkit_dir datasets/voc
 ```
 
-## Prepare base and few-shot datasets
+### Prepare base and few-shot datasets
 For a fair comparison, we use the few-shot datasets from [Few-shot Object Detection via Feature Reweighting](https://github.com/bingykang/Fewshot_Detection) as a standard evaluation.
 To download their datasplits and transfer it into maskrcnn-benchmark style, you need to run this script:
 ```bash
@@ -58,7 +58,7 @@ bash tools/fewshot_exp/datasets/init_fs_dataset_standard.sh
 ```
 This will also generate the datasets on base classes for base training.
 
-# Training and Evaluation
+## Training and Evaluation
 4 scripts are used for full splits experiments and you can modify them later.
 ```bash
 tools/fewshot_exp/
@@ -68,14 +68,23 @@ tools/fewshot_exp/
 └── train_coco_standard.sh
 ```
 You may need to change GPU device which is `export CUDA_VISIBLE_DEVICES=0,1` by default.
+Configurations of base & few-shot experiments are:
+```base
+configs/fewshot/
+├── base
+│   ├── e2e_coco_base.yaml
+│   └── e2e_voc_split*_base.yaml
+└── standard
+    ├── e2e_coco_*shot_finetune.yaml
+    └── e2e_voc_split*_*shot_finetune.yaml
+```
+Modify them if needed. If you have any question about these parameters (e.g. batchsize), refer to [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) for solutions.
 
-## Perform few-shot training on VOC dataset
+### Perform few-shot training on VOC dataset
 1. Run the following for base training on 3 VOC splits
 ```bash
 bash tools/fewshot_exp/train_voc_base.sh
 ```
-(explanation here later)
-
 This will generate base models (e.g. `model_voc_split1_base.pth`) and corresponding pre-trained models (e.g. `voc0712_split1base_pretrained.pth`).
 
 2. Run the following for few-shot fine-tuning
@@ -85,7 +94,12 @@ bash tools/fewshot_exp/train_voc_standard.sh
 (expalnation here later)
 
 This will perform evalution on 1/2/3/5/10 shot of 3 splits. 
-Result folder is `fs_exp/voc_standard_results` by default, and you can run `python tools/fewshot_exp/cal_novel_voc.py` for a quick summary.
+Result folder is `fs_exp/voc_standard_results` by default, and you can get a quick summary by:
+```bash
+python tools/fewshot_exp/cal_novel_voc.py fs_exp/voc_standard_results
+```
 
-## Perform few-shot training on COCO dataset
+### Perform few-shot training on COCO dataset
 
+
+##Citation

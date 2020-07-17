@@ -1,5 +1,5 @@
 #!/bin/bash
-export CUDA_VISIBLE_DEVICES=5,6
+export CUDA_VISIBLE_DEVICES=0,1
 export NGPUS=2
 SHOT=(10 30)
 mkdir fs_exp/coco_standard_results

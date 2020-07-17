@@ -1,5 +1,5 @@
 #!/bin/bash
-export CUDA_VISIBLE_DEVICES=5,6
+export CUDA_VISIBLE_DEVICES=0,1
 export NGPUS=2
 configfile=configs/fewshot/base/e2e_coco_base.yaml
 python tools/fewshot_exp/crops/create_crops_coco_base.py

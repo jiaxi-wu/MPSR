@@ -1,5 +1,5 @@
 #!/bin/bash
-export CUDA_VISIBLE_DEVICES=5,6
+export CUDA_VISIBLE_DEVICES=0,1
 export NGPUS=2
 SPLIT=(1 2 3)
 for split in ${SPLIT[*]} 
