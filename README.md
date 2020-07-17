@@ -1,4 +1,4 @@
-# Multi-scale Positive Sample Refinement for Few-shot Object Detection in PyTorch 1.1.0
+# Multi-scale Positive Sample Refinement for Few-shot Object Detection, ECCV 2020
 
 Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.6.5 & PyTorch 1.1.0.
 
@@ -9,22 +9,16 @@ Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](h
 4. Few-shot scripts for MS COCO experiments: 07/20.
 
 ## Abstract
-Few-shot object detection (FSOD) helps detectors adapt to unseen classes with few training instances, and is useful when manual annotation is time-consuming or data acquisition is limited.
-Unlike previous attempts that exploit few-shot classification techniques to facilitate FSOD, this work highlights the necessity of handling the problem of scale variations, which is challenging due to the unique sample distribution.
+Few-shot object detection (FSOD) helps detectors adapt to unseen classes with few training instances when manual annotation is time-consuming or data acquisition is limited.
+In this work, we highlights the necessity of handling the problem of scale variations, which is challenging due to the unique sample distribution.
 The lack of labels of novel classes leads to a sparse scale space which may be totally divergent from the original distribution of abundant training data. 
 To this end, we propose a Multi-scale Positive Sample Refinement (MPSR) approach to enrich object scales in FSOD. 
-It generates multi-scale positive samples as object pyramids and refines the prediction at various scales. 
-We demonstrate its advantage by integrating it as an auxiliary branch to the popular architecture of Faster R-CNN with FPN. 
+It generates multi-scale positive samples as object pyramids and refines the prediction at various scales. For more details, please refer to our ECCV paper(放arxiv链接). 
+
 
 <div align=center>
 <img src="https://github.com/jiaxi-wu/MPSR/blob/master/tools/fewshot_exp/MPSR_arch.jpg" width="600">
 </div>
-
-The whole detection framework for training consists of Faster R-CNN with FPN and the refinement branch working in parallel while sharing the same weights.
-For a given image, it is processed by the backbone network, RPN, RoI Align layer, and the detection head in the standard two-stage detection pipeline. 
-Simultaneously, an independent object extracted from the original image is resized to different scales as object pyramids. 
-We manually select the corresponding scale level of feature maps and the fixed center locations as positives for each object, keeping it consistent with the standard FPN assigning rules.
-After selecting specific features from these feature maps, we feed them directly to the RPN head and the detection head for refinement.
 
 ## Installation
 Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has been deprecated, please follow these instructions carefully (e.g. version of Python packages).
