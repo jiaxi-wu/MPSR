@@ -94,11 +94,11 @@ python tools/fewshot_exp/cal_novel_voc.py fs_exp/voc_standard_results
 ```
 
 ### Perform few-shot training on COCO dataset
-1. Run the following for base training on base classes
+1. Run the following for base training
 ```bash
 bash tools/fewshot_exp/train_coco_base.sh
 ```
-This will generate base models (`model_coco_base.pth`) and corresponding pre-trained models (`coco_base_pretrained.pth`).
+This will generate the base model (`model_coco_base.pth`) and corresponding pre-trained model (`coco_base_pretrained.pth`).
 
 2. Run the following for few-shot fine-tuning
 ```bash
