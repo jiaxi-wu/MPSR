@@ -25,6 +25,7 @@ for shot in [10, 30]:
         print(dict(zip(novel_cls, novel_mmap)))
         print('novel map:%.4f'%(sum(novel_map) / 20))
         print(dict(zip(novel_cls, novel_map)))
+        print('')
     except Exception as e:
         print('result file: %d shot not found'%shot)
         continue

@@ -1,7 +1,7 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
   #WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
-  FROZENBACKBONE: True
+  WEIGHT: "voc0712_split3base_pretrained.pth"
   BACKBONE:
     CONV_BODY: "R-101-FPN"
   RESNETS:

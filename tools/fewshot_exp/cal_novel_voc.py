@@ -14,6 +14,6 @@ for split in range(1, 4):
                 content = f.readlines()
             for k, j in enumerate(novel_index):
                 AP[k] += float(content[j][18 : 24])
-            print("VOC split%d  %dshot:novel map:%.4f"%(split, shot, sum(AP) / 5))
+            print("VOC split%d  %2dshot:novel map:%.4f"%(split, shot, sum(AP) / 5))
         except Exception as e:
             continue
