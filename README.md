@@ -26,8 +26,8 @@ Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has bee
 ## Prepare datasets
 
 ### Prepare original Pascal VOC & MS COCO datasets
-First, you will need to download the VOC & COCO datasets.
-We recommend to symlink the path to the coco dataset to `datasets/` as follows
+First, you need to download the VOC & COCO datasets.
+We recommend to symlink the path of the datasets to `datasets/` as follows
 
 We use `minival` and `valminusminival` sets from [Detectron](https://github.com/facebookresearch/Detectron/blob/master/detectron/datasets/data/README.md#coco-minival-annotations) ([filelink](https://dl.fbaipublicfiles.com/detectron/coco/coco_annotations_minival.tgz)).
 
@@ -45,8 +45,8 @@ ln -s /path_to_VOCdevkit_dir datasets/voc
 ```
 
 ### Prepare base and few-shot datasets
-For a fair comparison, we use the few-shot datasets from [Few-shot Object Detection via Feature Reweighting](https://github.com/bingykang/Fewshot_Detection) as a standard evaluation.
-To download their datasplits and transfer it into VOC/COCO style, you need to run this script:
+For a fair comparison, we use the few-shot data splits from [Few-shot Object Detection via Feature Reweighting](https://github.com/bingykang/Fewshot_Detection) as a standard evaluation.
+To download their data splits and transfer it into VOC/COCO style, you need to run this script:
 ```bash
 bash tools/fewshot_exp/datasets/init_fs_dataset_standard.sh
 ```
