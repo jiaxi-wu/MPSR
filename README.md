@@ -2,18 +2,12 @@
 
 Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.6.5 & PyTorch 1.1.0.
 
-## Todo:
-1. ~~Detection core of MPSR: 07/08.~~
-2. ~~Few-shot scripts for Pascal VOC experiments: 07/12.~~
-3. ~~README/INSTALL: 07/17.~~
-4. Few-shot scripts for MS COCO experiments/More detailed notations: 07/20.
-
 ## Abstract
 Few-shot object detection (FSOD) helps detectors adapt to unseen classes with few training instances when manual annotation is time-consuming or data acquisition is limited.
 In this work, we highlights the necessity of handling the problem of scale variations, which is challenging due to the unique sample distribution.
 The lack of labels of novel classes leads to a sparse scale space which may be totally divergent from the original distribution of abundant training data. 
 To this end, we propose a Multi-scale Positive Sample Refinement (MPSR) approach to enrich object scales in FSOD. 
-It generates multi-scale positive samples as object pyramids and refines the prediction at various scales. For more details, please refer to our ECCV paper (放arxiv链接). 
+It generates multi-scale positive samples as object pyramids and refines the prediction at various scales. For more details, please refer to our ECCV paper ([arxiv](https://arxiv.org/abs/2007.09384)). 
 
 
 <div align=center>
@@ -111,3 +105,11 @@ python tools/fewshot_exp/cal_novel_coco.py fs_exp/coco_standard_results
 ```
 
 ## Citation
+```
+@inproceedings{wu2020mpsr,
+  author = {Wu, Jiaxi and Liu, Songtao and Huang, Di and Wang, Yunhong},
+  booktitle = {European Conference on Computer Vision},
+  title = {Multi-Scale Positive Sample Refinement for Few-Shot Object Detection},
+  year = {2020}
+}
+```
