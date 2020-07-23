@@ -13,7 +13,6 @@ def get_closeup(image, target):
     for t in range(len(target)):
         x1, y1, x2, y2 = target.bbox[t].tolist()
         if min(x2 - x1, y2 - y1) < 8:
-            print('too min object exists')
             continue
         cutsize = max(x2 - x1, y2 - y1) * 8 / 7 / 2 
         midx = (x1 + x2) / 2
