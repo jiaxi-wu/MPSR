@@ -38,7 +38,7 @@ for s in range(2):
         img, annos, _ = dataset.__getitem__(index)
         crops, crop_labels = get_closeup(img, annos)
         for crop, label in list(zip(crops, crop_labels)):
-            label = CloseupDataset.CLASSES_COCO_BASE[label - 1]
+            label = CloseupDataset.CLASSES_COCO_BASE[label]
             cls_count[label] += 1
             crop.save('datasets/coco/Crops/%s/%d.jpg'%(label, cls_count[label]))
     print(cls_count)

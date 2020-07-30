@@ -3,6 +3,9 @@ import json
 yolodir = '../Fewshot_Detection'
 train = json.load(open('datasets/coco/annotations/instances_train2014.json'))
 val = json.load(open('datasets/coco/annotations/instances_val2014.json'))
+minival = json.load(open('datasets/coco/annotations/instances_minival2014.json'))
+minival_ids = [i['id'] for i in minival['images']]
+
 images = {}
 annotations = {}
 
@@ -31,6 +34,7 @@ for shot in [10, 30]:
                 content = f.readlines()
                 ids += [int(i.strip()[-16: -4]) for i in content if split in i]
         ids = list(set(ids))
+        ids = [i for i in ids if i not in minival_ids]
         for i in ids:
             n_json['images'].append(images[i])
             n_json['annotations'] += annotations[i]
