@@ -16,4 +16,4 @@ do
     mv inference/voc_2007_test/result.txt fs_exp/voc_standard_results/result_split${split}_${shot}shot.txt
   done
 done
-python tools/fewshot_exp/cal_novel_voc.py
+python tools/fewshot_exp/cal_novel_voc.py fs_exp/voc_standard_results
