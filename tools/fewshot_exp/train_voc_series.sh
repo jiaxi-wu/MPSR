@@ -1,6 +1,6 @@
 #!/bin/bash
 # Warning: This scripts was used for hyperparamter tuning. 
-# Only few-shot classes are limited to N-shot (not base) for more general sampling, may leading a drop in perfromance.
+# Only few-shot classes are limited to N-shot (not base) for more general sampling, may leading to a drop in perfromance.
 # Hope this will help your for further research.
 export CUDA_VISIBLE_DEVICES=0,1
 export NGPUS=2

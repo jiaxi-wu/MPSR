@@ -87,6 +87,8 @@ Result folder is `fs_exp/voc_standard_results` by default, and you can get a qui
 python tools/fewshot_exp/cal_novel_voc.py fs_exp/voc_standard_results
 ```
 
+3. For more general experiments, refer to `tools/fewshot_exp/train_voc_series.sh`. In this script, only few-shot classes are limited to N-shot. This may lead to a drop in performance but more natural conditions.
+
 ### Perform few-shot training on COCO dataset
 1. Run the following for base training
 ```bash
