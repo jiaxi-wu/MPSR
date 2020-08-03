@@ -106,7 +106,7 @@ class CloseupDataset(torch.utils.data.Dataset):
     )
 
     CLASSES_COCO_BASE = (
-        '__backgrund__', 'truck', 'traffic light', 'fire hydrant', 
+        '__background__', 'truck', 'traffic light', 'fire hydrant', 
         'stop sign', 'parking meter', 'bench', 'elephant', 'bear', 
         'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 
         'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 

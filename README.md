@@ -106,6 +106,8 @@ Result folder is `fs_exp/coco_standard_results` by default, and you can get a qu
 python tools/fewshot_exp/cal_novel_coco.py fs_exp/coco_standard_results
 ```
 
+**Notice:** Recently we find that [FSRW](https://github.com/bingykang/Fewshot_Detection) are not using the minival set for evaluation. So the training datasplits they provided contain few images in minival. Now we replace them while get almost the same evaluation results.
+
 ## Citation
 ```
 @inproceedings{wu2020mpsr,
