@@ -134,18 +134,19 @@ class RPNLossComputation(object):
         ) / (sampled_inds.numel())
 
         
-        closeup_objectness = torch.cat([c.view(-1) for c in closeup_objectness])
-        with torch.no_grad():
-            fakelabel = torch.ones(closeup_objectness.size(0), device=closeup_objectness.device)
-        #closeup_objectness_loss = F.binary_cross_entropy_with_logits(closeup_objectness, fakelabel)
+        if closeup_objectness is not None:
+            closeup_objectness = torch.cat([c.view(-1) for c in closeup_objectness])
+            with torch.no_grad():
+                fakelabel = torch.ones(closeup_objectness.size(0), device=closeup_objectness.device)
+            #closeup_objectness_loss = F.binary_cross_entropy_with_logits(closeup_objectness, fakelabel)
 
-        objectness_loss = F.binary_cross_entropy_with_logits(
-            torch.cat([objectness[sampled_inds], closeup_objectness], dim=0), torch.cat([labels[sampled_inds], fakelabel], dim=0)
-        )
-
-        #objectness_loss = F.binary_cross_entropy_with_logits(
-        #    objectness[sampled_inds], labels[sampled_inds]
-        #)
+            objectness_loss = F.binary_cross_entropy_with_logits(
+                torch.cat([objectness[sampled_inds], closeup_objectness], dim=0), torch.cat([labels[sampled_inds], fakelabel], dim=0)
+            )
+        else:
+            objectness_loss = F.binary_cross_entropy_with_logits(
+                objectness[sampled_inds], labels[sampled_inds]
+            )
 
         return objectness_loss, box_loss
 

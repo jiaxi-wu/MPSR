@@ -158,7 +158,7 @@ def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0, is_
     closeup_transforms = None if not is_train else build_closeup_transforms(cfg)
     datasets = build_dataset(dataset_list, transforms, DatasetCatalog, is_train, closeup_transforms)
 
-    if 'closeup' in dataset_list[0] or 'standard' in dataset_list[0]:
+    if 'closeup' in dataset_list[0] or ('standard' in dataset_list[0] and cfg.MODEL.CLOSEUP_REFINE):
         aspect_grouping = False
     data_loaders = []
     for dataset in datasets:

@@ -71,13 +71,16 @@ def train(cfg, local_rank, distributed):
         is_distributed=distributed,
         start_iter=arguments["iteration"],
     )
-    data_loader_closeup = make_data_loader(
-        cfg,
-        is_train=True,
-        is_distributed=distributed,
-        start_iter=arguments["iteration"],
-        is_closeup=True
-    )
+    if cfg.MODEL.CLOSEUP_REFINE:
+        data_loader_closeup = make_data_loader(
+            cfg,
+            is_train=True,
+            is_distributed=distributed,
+            start_iter=arguments["iteration"],
+            is_closeup=True
+        )
+    else:
+        data_loader_closeup = None
 
     checkpoint_period = cfg.SOLVER.CHECKPOINT_PERIOD
 

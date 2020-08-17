@@ -108,6 +108,19 @@ python tools/fewshot_exp/cal_novel_coco.py fs_exp/coco_standard_results
 
 **Notice:** Recently we find that [FSRW](https://github.com/bingykang/Fewshot_Detection) are not using the minival set for evaluation. So the training datasplits they provided contain few images in minival. Now we replace them while get almost the same evaluation results.
 
+### Baseline experiments
+For baseline experiments (i.e. Baseline-FPN in the paper), similar scripts are available as below:
+```bash
+tools/fewshot_exp/train_baseline_voc_base.sh
+tools/fewshot_exp/train_baseline_voc_standard.sh
+tools/fewshot_exp/train_baseline_coco_base.sh
+tools/fewshot_exp/train_baseline_coco_standard.sh
+```
+Corresponding Cfgs are at `configs/fewshot_baseline/`, in which `MODEL.CLOSEUP_REFINE` is set to `False`. Result folder is `fs_exp/*_baseline_standard_results` by default.
+
+### Pretrained weight files
+TBD before Aug 20th.
+
 ## Citation
 ```
 @inproceedings{wu2020mpsr,

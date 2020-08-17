@@ -151,13 +151,13 @@ class FastRCNNLossComputation(object):
             [proposal.get_field("regression_targets") for proposal in proposals], dim=0
         )
 
-        
-        #classification_loss = F.cross_entropy(class_logits, labels)#, weight=weight)
-        #closeup_classification_loss = F.cross_entropy(closeup_logits, closeup_labels)
-        closeup_labels = closeup_labels.repeat(len(closeup_logits))
-        closeup_logits = torch.cat(closeup_logits, dim=0)
         classification_loss = F.cross_entropy(class_logits, labels)
-        extra_classification_loss = F.cross_entropy(closeup_logits, closeup_labels) / 10
+        if closeup_logits is not None:
+            closeup_labels = closeup_labels.repeat(len(closeup_logits))
+            closeup_logits = torch.cat(closeup_logits, dim=0)
+            extra_classification_loss = F.cross_entropy(closeup_logits, closeup_labels) / 10
+        else:
+            extra_classification_loss = None
 
         # get indices that correspond to the regression targets for
         # the corresponding ground truth labels, to be used with

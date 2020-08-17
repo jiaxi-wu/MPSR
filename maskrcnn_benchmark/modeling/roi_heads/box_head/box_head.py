@@ -49,20 +49,31 @@ class ROIBoxHead(torch.nn.Module):
         if closeup_features is not None:
             closeup_xc = self.feature_extractor(closeup_features)
             closeup_logits = self.predictor(closeup_xc)
+            closeup_labels = closeup_targets.to(dtype=torch.int64)
+        else:
+            closeup_logits = None
+            closeup_labels = None
 
         if not self.training:
             result = self.post_processor((class_logits, box_regression), proposals)
             return xc, result, {}
 
-        closeup_labels = closeup_targets.to(dtype=torch.int64)
         loss_classifier, loss_box_reg, loss_closeup = self.loss_evaluator(
             [class_logits], [box_regression], closeup_logits, closeup_labels
         )
-        return (
-            xc,
-            proposals,
-            dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg, loss_closeup=loss_closeup)
-        )
+        if loss_closeup is not None:
+            return (
+                xc,
+                proposals,
+                dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg, loss_closeup=loss_closeup)
+            )
+        else:
+            return (
+                xc,
+                proposals,
+                dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg,)
+            )
+
 
 
 def build_roi_box_head(cfg, in_channels):

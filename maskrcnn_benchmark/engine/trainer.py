@@ -55,7 +55,10 @@ def do_train(
     model.train()
     start_training_time = time.time()
     end = time.time()
-    data_iter_closeup = iter(data_loader_closeup)
+    if data_loader_closeup is not None:
+        data_iter_closeup = iter(data_loader_closeup)
+    else:
+        data_iter_closeup = None
     for iteration, (images, targets, _) in enumerate(data_loader, start_iter):
         data_time = time.time() - end
         iteration = iteration + 1
@@ -64,9 +67,12 @@ def do_train(
         scheduler.step()
 
         images = images.to(device)
-        closeups, closeup_targets = next(data_iter_closeup)
-        closeups = [closeup.to(device) for closeup in closeups]
-        closeup_targets = closeup_targets.to(device)
+        if data_iter_closeup is not None:
+            closeups, closeup_targets = next(data_iter_closeup)
+            closeups = [closeup.to(device) for closeup in closeups]
+            closeup_targets = closeup_targets.to(device)
+        else:
+            closeups, closeup_targets = None, None
         targets = [target.to(device) for target in targets]
 
         loss_dict = model(images, targets, closeups, closeup_targets)
