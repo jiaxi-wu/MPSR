@@ -119,7 +119,14 @@ tools/fewshot_exp/train_baseline_coco_standard.sh
 Corresponding Cfgs are at `configs/fewshot_baseline/`, in which `MODEL.CLOSEUP_REFINE` is set to `False`. Result folder is `fs_exp/*_baseline_standard_results` by default.
 
 ### Pretrained weight files
-TBD before Aug 20th.
+Google Drive:
+||Baseline-FPN|MPSR|
+|:--:|:--:|:--:|
+|VOC Split 1|[model_baseline_voc_split1_base.pth](https://drive.google.com/file/d/10wlsQw8AXoWALTbpQHfHEWzdl_TvyOIQ/view?usp=sharing)|[model_voc_split1_base.pth](https://drive.google.com/file/d/10CS_TbJC3KuUr-oftoS5-a-WLM-m9PQw/view?usp=sharing)|
+|VOC Split 2|[model_baseline_voc_split2_base.pth](https://drive.google.com/file/d/1ziOWz65N5JB1pmB9q0Bz7Vr264oa60zN/view?usp=sharing)|[model_voc_split2_base.pth](https://drive.google.com/file/d/1lmDUmRs7OyaUPeOL5yaS80C-NgBnI6Fx/view?usp=sharing)|
+|VOC Split 3|[model_baseline_voc_split3_base.pth](https://drive.google.com/file/d/1nytlH8m7xB3BVakRaVShmnXYt0gAtFzJ/view?usp=sharing)|[model_voc_split3_base.pth](https://drive.google.com/file/d/1juBJETAwoGEXI18PzlDdUXkOVzXZWeOF/view?usp=sharing)|
+
+Or [BaiduYun](https://pan.baidu.com/s/12tqtB0DC-WGWw7ZB9F_jXw) with code: **vuef**.
 
 ## Citation
 ```
